@@ -5,20 +5,26 @@ import static org.junit.Assert.assertEquals;
 public class TestDec2Hex{
     public TestDec2Hex() {}
 
+    Dec2Hex dec2Hex;
+
+    @Before
+    public void setUp(){
+        dec2Hex = new Dec2Hex();
+    }
 
     @Test
     public void testInteger(){
-        assertEquals("Number conversion should  work", "F", Dec2Hex.convertToHex(new String[]{"15"}));
+        assertEquals("Number conversion should  work", "F", dec2Hex.convertToHex("15"));
 
     }
     @Test
     public void testNull(){
-        assertEquals("Input was null, this must be a number", "", Dec2Hex.convertToHex(new String[]{null}));
+        assertEquals("Input was null, enter a number", "", dec2Hex.convertToHex(null));
     }
 
     @Test
     public void testString(){
-        assertEquals("Not a number", Dec2Hex.convertToHex(new String[]{"abc"}));
+        assertEquals("Please enter an Integer", dec2Hex.convertToHex("abc"));
     }
 
 

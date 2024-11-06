@@ -5,50 +5,47 @@ class Dec2Hex
 {
     public static int Arg1;
 
-
-    public static String convertToHex(String[] args){
-        try{
-            Arg1 = Integer.parseInt(args[0]);
-        } catch (NumberFormatException e) {
-            System.out.println("Please enter an Integer");
-        }
-        char ch[]={'0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F'};
-        int rem;
-        int num = Arg1;
-        String hexadecimal="";
-        System.out.println("Converting the Decimal Value " + Arg1 + " to Hex...");
-
-
-        while(num != 0)
-        {
-            rem=num%16;
-            hexadecimal= ch[rem] + hexadecimal;
-            num= num/16;
-        }
-
-        return hexadecimal;
-    }
-
     public static void main(String[] args){
+
+        if(args.length ==0){
+            System.out.println("Input was empty, enter a number");
+            return;
+        }
+
         try{
             Arg1 = Integer.parseInt(args[0]);
         } catch (NumberFormatException e) {
             System.out.println("Please enter an Integer");
-        }catch(ArrayIndexOutOfBoundsException f){
-            System.out.println("Must not be empty");
+            return;
         }
 
 
 
-        String hexadecimal = convertToHex(new String[]{"15"});
+        String hexadecimal = convertToHex(String.valueOf(Arg1));
         System.out.println("Hexadecimal representation is: " + hexadecimal);
 
     }
 
+    public static String convertToHex(String input){
+        boolean isInteger;
+        int num = 0;
+        if(input == null){
+            return "Input was null, enter a number";
+        }
+        try{
+            num = Integer.parseInt(input);
+            isInteger = true;
+        } catch (NumberFormatException e) {
+            isInteger = false;
+        }
 
+        if(!isInteger){
+            return"Please enter an Integer";
+        }
+        char ch[]={'0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F'};
+        int rem;
 
-
-}
-
+        String hexadecimal="";
+        System.out.println("Converting the Decimal Value " + Arg1 + " to Hex...");
 
 
