@@ -3,6 +3,8 @@ import java.util.Scanner;
 
 class Dec2Hex
 {
+
+// class that provides the implementation of turning a decimal to a hex
     public static int Arg1;
 
     public static void main(String[] args){
