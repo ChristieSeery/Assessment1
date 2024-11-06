@@ -21,7 +21,7 @@ class Dec2Hex
 
 
 
-        String hexadecimal = convertToHex(String.valueOf(Arg1));
+        String hexadecimal = convertToHex(args[0]);
         System.out.println("Hexadecimal representation is: " + hexadecimal);
 
     }
@@ -48,4 +48,21 @@ class Dec2Hex
         String hexadecimal="";
         System.out.println("Converting the Decimal Value " + Arg1 + " to Hex...");
 
+
+        while(num != 0)
+        {
+            rem=num%16;
+            hexadecimal= ch[rem] + hexadecimal;
+            num= num/16;
+        }
+
+        return hexadecimal;
+    }
+
+
+
+
+
+
+}
 
