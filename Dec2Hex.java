@@ -8,12 +8,12 @@ class Dec2Hex
     public static int Arg1;
 
     public static void main(String[] args){
-
+// check if null
         if(args.length ==0){
             System.out.println("Input was empty, enter a number");
             return;
         }
-
+// try catch statement, try  parse int, catch error if not a number
         try{
             Arg1 = Integer.parseInt(args[0]);
         } catch (NumberFormatException e) {
@@ -22,12 +22,12 @@ class Dec2Hex
         }
 
 
-
+// call convert to hex method
         String hexadecimal = convertToHex(args[0]);
         System.out.println("Hexadecimal representation is: " + hexadecimal);
 
     }
-
+// convertToHex method
     public static String convertToHex(String input){
         boolean isInteger;
         int num = 0;
